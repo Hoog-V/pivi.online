@@ -1,4 +1,2 @@
----
-title: Victor
-template: home.html
----
+# Blog
+
