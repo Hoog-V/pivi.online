@@ -60,6 +60,10 @@ theme:
 plugins:
   - blog:
       blog_dir: . 
+markdown_extensions:
+  - attr_list
+  - md_in_html
+
 
 nav:
   - Blog:
