@@ -74,6 +74,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#autonomous-line-following-robot" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -430,6 +435,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Autonomous line following robot
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -440,6 +458,73 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-explanation" class="md-nav__link">
+    Assignment Explanation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-requirements" class="md-nav__link">
+    Project Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#non-functional-customer-requirements" class="md-nav__link">
+    Non-Functional Customer Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functional-customer-requirements" class="md-nav__link">
+    Functional Customer Requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component-choices" class="md-nav__link">
+    Component Choices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pcb-schematic" class="md-nav__link">
+    PCB Schematic
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -476,7 +561,7 @@
         
   
   <span class="md-ellipsis">
-    APPS project
+    APPS Project
   </span>
   
 
@@ -496,7 +581,7 @@
         
   
   <span class="md-ellipsis">
-    PCB etching
+    PCB Etching
   </span>
   
 
@@ -558,7 +643,7 @@
         
   
   <span class="md-ellipsis">
-    Gaze tracker
+    Gaze tracker written in C++
   </span>
   
 
@@ -578,7 +663,7 @@
         
   
   <span class="md-ellipsis">
-    Wake word detection in cpp
+    Wake word detection in C++
   </span>
   
 
@@ -685,6 +770,64 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-explanation" class="md-nav__link">
+    Assignment Explanation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-requirements" class="md-nav__link">
+    Project Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#non-functional-customer-requirements" class="md-nav__link">
+    Non-Functional Customer Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functional-customer-requirements" class="md-nav__link">
+    Functional Customer Requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#component-choices" class="md-nav__link">
+    Component Choices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pcb-schematic" class="md-nav__link">
+    PCB Schematic
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -699,9 +842,81 @@
                   
 
 
-  <h1>Autonomous line following robot</h1>
-
-
+<h1 id="autonomous-line-following-robot">Autonomous line following robot</h1>
+<p>The Second First-Year Project of my Electrical Engineering course at the University of Applied Sciences Rotterdam: Building a Robot that Can Independently Follow Black Lines on the Floor</p>
+<h2 id="assignment-explanation">Assignment Explanation</h2>
+<p>The task is to build an autonomous robot with the following functions:</p>
+<ul>
+<li>The robot must be able to follow a line.</li>
+<li>The robot must be able to read NFC cards from the ground and process the data from these cards.</li>
+<li>The robot must not collide with anything.</li>
+</ul>
+<h2 id="project-requirements">Project Requirements</h2>
+<h3 id="non-functional-customer-requirements">Non-Functional Customer Requirements</h3>
+<ul>
+<li>
+<p><strong>REQ-NF1[MH]</strong>: The dimensions of the robot may not exceed: length = 297mm, width = 210mm, and height = 210mm.</p>
+</li>
+<li>
+<p><strong>REQ-NF2[MH]</strong>: Only microcontrollers from the MSP430 series may be used.</p>
+</li>
+<li>
+<p><strong>REQ-NF3[MH]</strong>: Breadboards are not allowed in the final product.</p>
+</li>
+<li>
+<p><strong>REQ-NF4[MH]</strong>: (Wire) connections between the units must be made with the correct colors and thickness.</p>
+</li>
+<li>
+<p><strong>REQ-NF5[MH]</strong>: A private repository on Bitbucket must be used for the software version control system.</p>
+</li>
+</ul>
+<h3 id="functional-customer-requirements">Functional Customer Requirements</h3>
+<ul>
+<li><strong>F-REQ-1[MH]</strong>: The robot must drive independently over a grid of black lines without cables or any form of remote control, at a minimum speed of 2π cm/s.</li>
+<li><strong>F-REQ-2[MH]</strong>: The robot will never make contact with or drive over an object (both forwards and backwards) that is higher than 2.72 cm.</li>
+<li><strong>F-REQ-3[MH]</strong>: The robot must be able to drive over objects with a height of 0.7 cm.</li>
+<li><strong>F-REQ-4[MH]</strong>: The robot must track the distance traveled. Distances from 0 cm to 99,999 cm can be measured from the start signal. The maximum deviation is 15%.</li>
+<li><strong>F-REQ-5[MH]</strong>: The robot must track the elapsed time, counting up to at least 99,999 seconds. The maximum deviation is 10%.</li>
+<li><strong>F-REQ-6[MH]</strong>: The robot must be able to make decisions using NFC tags, which are placed on the grid (the path the robot must follow).</li>
+<li><strong>F-REQ-7[MH]</strong>: The robot must be equipped with a start button to begin driving, a stop button to stop the robot, and a reset button to reset the displayed measurements.</li>
+<li><strong>F-REQ-8[MH]</strong>: The robot must have a stop function. When this function is used, all collected data will be reported.</li>
+<li><strong>F-REQ-9[MH]</strong>: The robot must be able to turn around if there is an object in its path.</li>
+<li><strong>F-REQ-10[MH]</strong>: The robot must be able to operate on batteries.</li>
+</ul>
+<p><strong>Note</strong>: This project uses the Moscow method, meaning the requirements are categorized as Must have (MH), Could have (CH), or Should have (SH). However, all requirements in this case are must-haves 🙂.</p>
+<h2 id="component-choices">Component Choices</h2>
+<ul>
+<li>
+<p>MSP430FR2476 16-bit microcontroller is used as the brain for the robot.</p>
+</li>
+<li>
+<p>An L298N H-bridge for driving the motors.</p>
+</li>
+<li>
+<p>A Corona CS238MG for the steering mechanism.</p>
+</li>
+<li>
+<p>A TCRT5000 IR LED Module for detecting black lines on the ground.</p>
+</li>
+<li>
+<p>An HC-SR04 ultrasonic module for detecting obstacles in the path.</p>
+</li>
+<li>
+<p>An MFRC522 NFC module for reading NFC cards on the path.</p>
+</li>
+<li>
+<p>Two LM2596S-adj regulators (one for 5V and one for 3.3V).</p>
+</li>
+<li>
+<p>A module with a light gate as an encoder.</p>
+</li>
+</ul>
+<p>A printed circuit board (PCB) has been made for this project 🙂. Here are two photos of the PCB:</p>
+<p><img alt="" src="../assets/printplaat_pee20.jpg" /></p>
+<p><img alt="" src="../assets/printplaat_pee20_bottom.jpg" /></p>
+<h2 id="pcb-schematic">PCB Schematic</h2>
+<p>This the PCB Schematic for this project:</p>
+<p><img alt="" src="../assets/schematic_pee20.jpg" /></p>
 
 
 

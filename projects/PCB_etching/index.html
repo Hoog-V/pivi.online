@@ -20,7 +20,7 @@
     
     
       
-        <title>PCB etching - Victor Hogeweij</title>
+        <title>PCB Etching - Victor Hogeweij</title>
       
     
     
@@ -74,6 +74,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#pcb-etching" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -109,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PCB etching
+              PCB Etching
             
           </span>
         </div>
@@ -468,7 +473,7 @@
         
   
   <span class="md-ellipsis">
-    APPS project
+    APPS Project
   </span>
   
 
@@ -490,16 +495,76 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    PCB Etching
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    PCB etching
+    PCB Etching
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kicad" class="md-nav__link">
+    KiCad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-paper-and-an-iron" class="md-nav__link">
+    Special Paper and an Iron
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etching" class="md-nav__link">
+    Etching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-results" class="md-nav__link">
+    The Results
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -558,7 +623,7 @@
         
   
   <span class="md-ellipsis">
-    Gaze tracker
+    Gaze tracker written in C++
   </span>
   
 
@@ -578,7 +643,7 @@
         
   
   <span class="md-ellipsis">
-    Wake word detection in cpp
+    Wake word detection in C++
   </span>
   
 
@@ -685,6 +750,44 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kicad" class="md-nav__link">
+    KiCad
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-paper-and-an-iron" class="md-nav__link">
+    Special Paper and an Iron
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etching" class="md-nav__link">
+    Etching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-results" class="md-nav__link">
+    The Results
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -699,9 +802,20 @@
                   
 
 
-  <h1>PCB etching</h1>
-
-
+<h1 id="pcb-etching">PCB Etching</h1>
+<p>Something I've been trying to do for a long time is make my own PCBs. It has often gone wrong or not been optimal, but now i finally succeeded!</p>
+<p><img alt="" src="../assets/pcb_etching.jpg" /></p>
+<h2 id="kicad">KiCad</h2>
+<p>It all starts with a simple KiCad drawing. I convert this into a PCB as I would normally design it. I just pay a bit more attention to the thickness of the traces. For the trace thickness, I prefer to use 0.5mm; 0.25mm also works but can cause problems during etching. Another thing I pay close attention to is ensuring it's all single-sided (single layer), so no vias. Other than that, it's the same as if I were ordering it through JLCPCB.</p>
+<h2 id="special-paper-and-an-iron">Special Paper and an Iron</h2>
+<p>After designing my PCB in KiCad, I print it mirrored onto special paper (yellow in appearance). This paper is yellow and has a plastic layer on one side, which does not allow the toner from my black-and-white printer to adhere well. Because it doesn't stick well, I can place it on a copper board and iron the design onto it. You iron it for two minutes, and then you have your PCB.</p>
+<p>It took some trial and error to figure out how long and how exactly this works. But once you figure it out, it works quite well!</p>
+<h2 id="etching">Etching</h2>
+<p>I use Sodium Persulfate for etching. It's interesting stuff, especially for your clothes. The first time I used it was on a free evening, and I treated it as if it were water. The result was a dotted pajama, as over time the stuff ate holes into my pajamas.</p>
+<p>Etching takes about 20-25 minutes, depending on how often the solution has been used and the temperature. I still need to buy myself a nice etching tank. Right now, I do it in a Tupperware container and risk getting it on my clothes every time.</p>
+<h2 id="the-results">The Results</h2>
+<p><img alt="" src="../assets/pcb_etching_top.jpg" /></p>
+<p><img alt="" src="../assets/pcb_etching_bottom.jpg" /></p>
 
 
 
@@ -729,7 +843,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../APPS_project/" class="md-footer__link md-footer__link--prev" aria-label="Previous: APPS project" rel="prev">
+          <a href="../APPS_project/" class="md-footer__link md-footer__link--prev" aria-label="Previous: APPS Project" rel="prev">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -739,20 +853,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                APPS project
+                APPS Project
               </div>
             </div>
           </a>
         
         
           
-          <a href="../open_source/Gaze_tracker/" class="md-footer__link md-footer__link--next" aria-label="Next: Gaze tracker" rel="next">
+          <a href="../open_source/Gaze_tracker/" class="md-footer__link md-footer__link--next" aria-label="Next: Gaze tracker written in C++" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Gaze tracker
+                Gaze tracker written in C++
               </div>
             </div>
             <div class="md-footer__button md-icon">

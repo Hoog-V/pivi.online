@@ -74,6 +74,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#motor-driver-for-rollerbank" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -450,6 +455,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Motor driver for rollerbank
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -460,6 +478,32 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#component-selection" class="md-nav__link">
+    Component selection
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -476,7 +520,7 @@
         
   
   <span class="md-ellipsis">
-    APPS project
+    APPS Project
   </span>
   
 
@@ -496,7 +540,7 @@
         
   
   <span class="md-ellipsis">
-    PCB etching
+    PCB Etching
   </span>
   
 
@@ -558,7 +602,7 @@
         
   
   <span class="md-ellipsis">
-    Gaze tracker
+    Gaze tracker written in C++
   </span>
   
 
@@ -578,7 +622,7 @@
         
   
   <span class="md-ellipsis">
-    Wake word detection in cpp
+    Wake word detection in C++
   </span>
   
 
@@ -685,6 +729,23 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#component-selection" class="md-nav__link">
+    Component selection
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -699,9 +760,16 @@
                   
 
 
-  <h1>Motor driver for rollerbank</h1>
-
-
+<h1 id="motor-driver-for-rollerbank">Motor driver for rollerbank</h1>
+<p>For my first term project at the second year of the bachelor Electrical Engineering. A projectgroup of 4 other persons and me had to create a motor driver for a rollerbank. A rollerbank is typically used to check motor performance on motor verhicles. </p>
+<p>As this is a collaborative project the project was split-up in several components, we got the motor driver part of the assignment. This part is used to test the rollerbank. </p>
+<h2 id="component-selection">Component selection</h2>
+<p>We designed a motor driver around a chopper design. The chopper had one big n-channel mosfet with a gate driver on the gate to make sure our set-up could reach switching speeds of ~1KHz. </p>
+<p>Another aspect of this project were the strict communication interface and safety requirements. This required us to add a microcontroller to the project. We were limited on time and knowledge so we used a MSP430 microcontroller, which we had already used in previous terms and subject/courses. This MSP430 communicated with isolated communication lines to the MPPT tracker and main controller of the rollerbank.</p>
+<p>One big problem with the isolated communication lines was the lack of a power supply. The other teams did not discuss the option of adding a isolated supply. So we had to build this one too;</p>
+<p>The supply thus consisted of a isolated flyback converter (with LT8301 ic) and a non-isolated buck-converter for internal use (LM2596s). </p>
+<p><img alt="" src="../assets/printplaat_pee30.jpeg" /></p>
+<p><img alt="" src="../assets/pee30_motor.jpg" /></p>
 
 
 
@@ -746,13 +814,13 @@
         
         
           
-          <a href="../APPS_project/" class="md-footer__link md-footer__link--next" aria-label="Next: APPS project" rel="next">
+          <a href="../APPS_project/" class="md-footer__link md-footer__link--next" aria-label="Next: APPS Project" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                APPS project
+                APPS Project
               </div>
             </div>
             <div class="md-footer__button md-icon">
