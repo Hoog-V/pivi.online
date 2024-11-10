@@ -23,4 +23,5 @@ jobs:
       - run: sudo apt-get -y install mkdocs
       - run: pip install mkdocs-material 
       - run: git pull && mkdocs gh-deploy
-      - run: git checkout gh-pages && echo "www.pivi.online" > CNAME && git commit -am "add CNAME" && git push
+      - run: git checkout gh-pages && echo "www.pivi.online" > CNAME
+      - uses: stefanzweifel/git-auto-commit-action@v4
