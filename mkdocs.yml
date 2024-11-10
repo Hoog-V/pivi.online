@@ -1,7 +1,7 @@
 site_name: Victor Hogeweij
 theme:
   name: material
-  # custom_dir: docs/overrides
+  custom_dir: overrides
   features:
     - announce.dismiss
     - content.action.edit

@@ -6,6 +6,7 @@ categories:
 description: >
   The making of a (fail-safe) 16-channel automatic transfer switch for homebattery system (Part 0: Conceptualization)
 title: Conceptualization new revision of the Homebattery ATS 
+comments: true
 ---
 
 # A new revision of the Home battery ATS

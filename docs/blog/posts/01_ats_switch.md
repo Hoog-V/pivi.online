@@ -10,4 +10,4 @@ title: Hardware design for the (fail-safe) ATS has been finilised
 
 # Hardware design for the Homebattery ATS has been finilised
 
-_
+As introduced in blog post [Conceptualization new revision of the Homebattery ATS ]()
