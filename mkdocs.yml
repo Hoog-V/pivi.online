@@ -58,16 +58,16 @@ theme:
 
 # Plugins
 plugins:
-  - blog:
-      blog_dir: . 
+  - blog
 markdown_extensions:
   - attr_list
   - md_in_html
 
 
 nav:
+  - index.md
   - Blog:
-    - index.md
+    - blog/index.md
   - Projects: 
     - projects/led_matrix_clock.md
     - projects/autonomous_line_following_robot.md
