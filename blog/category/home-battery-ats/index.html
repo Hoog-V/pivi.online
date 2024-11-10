@@ -945,7 +945,7 @@
           
           <li class="md-meta__item">
             
-              1 min read
+              5 min read
             
           </li>
         
@@ -954,8 +954,50 @@
     </div>
   </header>
   <div class="md-post__content md-typeset">
-    <h2 id="hardware-design-for-the-homebattery-ats-has-been-finilised"><a class="toclink" href="../../2024/09/01/hardware-design-for-the-fail-safe-ats-has-been-finilised/">Hardware design for the Homebattery ATS has been finilised</a></h2>
-<p>As introduced in blog post <a href="">Conceptualization new revision of the Homebattery ATS </a></p>
+    <h2 id="hardware-design-for-the-homebattery-ats-has-been-finalized"><a class="toclink" href="../../2024/09/01/hardware-design-for-the-fail-safe-ats-has-been-finalized/">Hardware design for the Homebattery ATS has been finalized</a></h2>
+<p>As introduced in blog post <a href="../../2024/08/19/conceptualization-new-revision-of-the-homebattery-ats/">Conceptualization new revision of the Homebattery ATS </a>,  I am building a new ATS system for our PV system. </p>
+<p>I am happy to announce that the first revision of the new hardware is now assembled and ready to be tested! </p>
+<h3 id="new-circuitbreaker-panel"><a class="toclink" href="../../2024/09/01/hardware-design-for-the-fail-safe-ats-has-been-finalized/#new-circuitbreaker-panel">New circuitbreaker panel</a></h3>
+<p>To accommodate my new PCB design, I also need to replace the original 230V relays with smaller 24V relays. Because of the new topology of switching all big power consumers seperately from all the other electronic devices in the house, a lot more relays are needed then before. So a complete redesign of my breaker box was needed.</p>
+<p>Old system:</p>
+<p><img alt="Old circuit breaker panel" src="../../assets/old_ats_phys.jpg" /></p>
+<p>New system:</p>
+<p><img alt="New circuit breaker panel" src="../../assets/new_circuit_breaker_panel.jpg" /></p>
+<p>Okay, I understand the new system is a bit more complicated, but it offers a lot more safety and control than the old system.</p>
+<p>Each big power consumer in the house now has it's own breaker, relay stage (with a separate relay for PV and Grid) and power meter. Besides this all relays are replaced with Finder 24V relays which can be switched from battery power, so that in an outage the whole house does not lose power. An added benefit is lower power losses as the relays can be switched with low on-resistance mosfets. </p>
+<p>The power meters (SDM120-CTM) allows for measuring the power consumption and reading it from the modbus interface. Very useful! As it helps the system switch quickly when the inverter is nearing its power limit. And it helps to estimate whether the relay contacts are wearing out/not switching properly.</p>
+<p>Not visible in the picture, but the whole new breaker box is also fitted with temperature sensors, which detect if any of the relays are getting hot. As there are some multi-contact relays, which might switch properly on 1/2 contacts but the other one's can be worn out, increasing the contact resistance and also generating heat (sometimes not measurable through power meters). For safety it might be a good idea to detect it and warn so that we can replace the relay early and reduce risk of fire.</p>
+<p>Mandated by law (nen1010) and for our own safety we added GFCI everywhere (also on the output of the PV inverter) (we also have a Grid main switch, but it is not shown in picture). So even if this system fails, we can not damage our inverter, get shocked to death or have the risk of our main fuse breaking (which is really expensive to get replaced).</p>
+<h3 id="manual-override-panel"><a class="toclink" href="../../2024/09/01/hardware-design-for-the-fail-safe-ats-has-been-finalized/#manual-override-panel">Manual override panel</a></h3>
+<p>Sometimes we want to go on a relaxing vacation without having to worry about the ATS being active. To disable the ATS and override the relays we have a panel with Manual override switches. Which is placed between every relay switching wire and allows us to control the relays manually. The other end of the switch obviously connects to the new metal box with our custom-pcb.</p>
+<h3 id="custom-pcb-prototype"><a class="toclink" href="../../2024/09/01/hardware-design-for-the-fail-safe-ats-has-been-finalized/#custom-pcb-prototype">Custom PCB Prototype</a></h3>
+<p>The smart brain of the system consists of a newly designed pcb. Which is my first ever 4-layer pcb, Of course the pcb is oversized (it had to fit in eurocard sized enclosure, it fits, but should have made pcb less wide to save materials).</p>
+<p>The custom PCB I designed has the following hardware:</p>
+<ul>
+<li>NXP MCXN947 devkit (Dual Arm Cortex-M33 with NPU and Ethernet Phy)</li>
+<li>16 p-ch mosfet + optocoupler driven output channels (for driving the relays)</li>
+<li>On-board temperature monitoring</li>
+<li>Modbus drivers</li>
+<li>Battery charging circuit for (16s) NiMH battery</li>
+<li>A lot of fuses (both Glass and SMD)</li>
+</ul>
+<p><img alt="" src="../../assets/ats_pcb_new.JPG" /></p>
+<h4 id="mcu-choice"><a class="toclink" href="../../2024/09/01/hardware-design-for-the-fail-safe-ats-has-been-finalized/#mcu-choice">MCU choice</a></h4>
+<p>Of course, I could have fitted my design with a new and shiny ESPxx whatever. But this time I really wanted to go for an Arm-based solution and play a bit with some of the new NXP microcontrollers. Yes, the NXP MCXN947 is way overkill for this application, as it has to run a MQTT client, Web scraper, Web server, some code that accurately switches the relay within half an ac cycle, battery charging code and maybe a graphics framework (such as LVGL). This could have easily ran on a Cortex-M3/4 part. </p>
+<p>But the fact that this is a new platform, which has a long support cycle (until 2035, I believe). Devkit with built-in Phy, cheap (&lt;20 Euro), easy to CMake, usable hal, great low power modes and huge flash/ ECC ram (468(ECC)/512KB ram &amp; 2MB Flash). Means that I have a lot of room to improve the software and make the whole system more efficient.</p>
+<p>The MCU is also connected to our home network by Lan and scrapes our Victron Cerbo for current Battery and Inverter statistics. In the future it will try to scrape the local solar farm website (which have comparably sized solar panels), so that an estimation of power can be made. Eventually with the goal to optimize usage of solar throughout the night and partly the day (as Energy at nighttime is the most expensive and polluting).</p>
+<h4 id="power-supply-and-battery-charger"><a class="toclink" href="../../2024/09/01/hardware-design-for-the-fail-safe-ats-has-been-finalized/#power-supply-and-battery-charger">Power supply and Battery charger</a></h4>
+<p>The power supply circuit uses two recom dc-dc power supply modules (1x3.3V and 1x5V). This is mainly to save on design time and reduce risk on EMI/EMC effects. </p>
+<p>The battery charger uses a p-channel mosfet driven by a gate-driver which can be PWMed to charge the attached NiMH battery to the right battery level. The reason I chose to use NiMH is that it is a very stable &amp; safe battery chemistry. Which doesn't catch fire when mishandled. Talking about mishandled there is a temperature sensor nearby (not populated, at the moment) which can be used to check if any heat is produced (which should not happen obviously (low RDSon, Fused &amp; over-dimensioned)). But just in case.</p>
+<h4 id="mosfet-output-stage"><a class="toclink" href="../../2024/09/01/hardware-design-for-the-fail-safe-ats-has-been-finalized/#mosfet-output-stage">Mosfet output stage</a></h4>
+<p>The output stage uses p-channel mosfets with low on-resistance of 0.01 ohm to keep power losses as low as possible. The gates of these mosfets are driven by optocouplers which decouple the 24V line and 3.3V line, to reduce EMI/EMC. The drain of the mosfet is also connected to an optocoupler to provide feedback to the microcontroller and hardware interlock.</p>
+<p>The optocouplers are then driven by two 8-bit SIPO shift registers and an AND-gate which prevents the Grid and PV relay to turn on at the same time.</p>
+<h4 id="display-and-keypad"><a class="toclink" href="../../2024/09/01/hardware-design-for-the-fail-safe-ats-has-been-finalized/#display-and-keypad">Display and Keypad</a></h4>
+<p>The display and keypad header allows for connecting an SPI-based display (with DC-line). And an I2C-based keypad using an IO-expander. </p>
+<h4 id="modbus"><a class="toclink" href="../../2024/09/01/hardware-design-for-the-fail-safe-ats-has-been-finalized/#modbus">MODBUS</a></h4>
+<p>The whole modbus shenanigans are needed for the Power meter and Temperature sensors inside the new circuit breaker box.</p>
+<h3 id="schematic-and-design-files"><a class="toclink" href="../../2024/09/01/hardware-design-for-the-fail-safe-ats-has-been-finalized/#schematic-and-design-files">Schematic and design files</a></h3>
+<p>The schematic and design files are on <a href="https://github.com/Hoog-V/Gridswitcher_V2">GitHub</a>.</p>
     
   </div>
 </article>
