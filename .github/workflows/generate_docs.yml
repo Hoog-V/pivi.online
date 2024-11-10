@@ -22,4 +22,4 @@ jobs:
             mkdocs-material-
       - run: sudo apt-get -y install mkdocs
       - run: pip install mkdocs-material 
-      - run: mkdocs gh-deploy
+      - run: git pull && mkdocs gh-deploy
