@@ -63,22 +63,19 @@ markdown_extensions:
   - attr_list
   - md_in_html
 
-
 nav:
   - index.md
+  - healthbot.md
   - Blog:
-    - blog/index.md
-  - Projects: 
-    - projects/led_matrix_clock.md
-    - projects/autonomous_line_following_robot.md
-    - projects/motor_driver_for_rollerbank.md
-    - projects/APPS_project.md
-    - projects/PCB_etching.md
-    - Open source projects:
-        - projects/open_source/Gaze_tracker.md
-        - projects/open_source/Wake_word_detection_in_cpp.md
+      - blog/index.md
+  - Projects:
+      - projects/APPS_project.md
+      - projects/PCB_etching.md
+      - Open source projects:
+          - projects/open_source/Gaze_tracker.md
+          - projects/open_source/Wake_word_detection_in_cpp.md
   - About me:
-    - about me/about_me.md
+      - about me/about_me.md
 # nav:
 #   - Blog:
 #     - blog/index.md
